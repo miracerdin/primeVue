@@ -25,7 +25,7 @@ const greet = () => {
         <Toast></Toast>
         <span class="">
             <InputText type="text" v-model="modelValue" size="small" placeholder="Small" />
-            <label for="username">Username 1</label>
+            <label for="username">Username</label>
         </span>
         <div class="w-1.5">
             <Button label="user" rounded @click="greet" icon="pi pi-user" size="large" />
