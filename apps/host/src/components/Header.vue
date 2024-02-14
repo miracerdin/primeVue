@@ -33,7 +33,7 @@ sayHello();
 </script>
 
 <template>
-    <nav>
+    <nav class="flex justify-between w-full">
         <span> Logo </span>
         <div id="nav">
             <router-link to="/">Home</router-link>
@@ -41,18 +41,11 @@ sayHello();
             <router-link to="/contact">Contact</router-link>
         </div>
 
-        <InputSwitch v-model="checked" />
-
         <ThemeSwitcher />
     </nav>
 </template>
 
 <style scoped>
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 ul {
     display: flex;
     justify-content: center;
