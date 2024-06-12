@@ -1,48 +1,56 @@
 <script setup lang="ts">
-// import { SelectModel } from "@/types";
 import { ref } from "vue";
 import { sayHello } from "@primevue/common";
-// import { usePrimeVue } from "primevue/config";
 import ThemeSwitcher from "../components/ThemeSwitcher.vue";
+import SignIn from "../components/SignIn.vue";
+import Register from "../components/Register.vue";
+import { useToast } from "primevue/usetoast";
 
-// const PrimeVue = usePrimeVue();
-// const headerItems = ref<SelectModel[]>([
-//   { value: "home", text: "Home", selected: false },
-//   { value: "about", text: "About", selected: false },
-//   { value: "contact", text: "Contact", selected: false },
-// ]);
+const toast = useToast();
 
-const checked = ref(false);
-
-// const activeChanged = (type: SelectModel) => {
-//   headerItems.value = headerItems.value.map((e) => {
-//     const isSelected = e.value === type.value;
-//     return { ...e, selected: isSelected };
-//   });
-// };
-
-// const changeTheme = () => {
-//   return PrimeVue.changeTheme(
-//     "md-dark-indigo",
-//     "md-light-indigo",
-//     "theme-link",
-//     () => {}
-//   );
-// };
+const showSuccess = () => {
+    console.log("success");
+    toast.add({
+        severity: "success",
+        summary: "Giriş Başarılı",
+        detail: "Giriş Başarılı",
+        life: 3000,
+    });
+};
 sayHello();
 </script>
 
 <template>
-    <nav class="flex justify-between w-full">
-        <span> Logo </span>
-        <div id="nav">
-            <router-link to="/">Home</router-link>
-            <router-link to="/about">About</router-link>
-            <router-link to="/contact">Contact</router-link>
-        </div>
+    <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem" class="h-20">
+        <template #start>
+            <div class="flex align-items-center gap-2">
+                <svg
+                    width="35"
+                    height="40"
+                    viewBox="0 0 35 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path d="..." fill="var(--text-color)" />
+                    <path d="..." fill="var(--surface-card)" />
+                </svg>
+                <div id="nav">
+                    <router-link to="/">Home</router-link>
+                    <router-link to="/about">About</router-link>
+                    <router-link to="/contact">Contact</router-link>
+                </div>
+            </div>
+        </template>
 
-        <ThemeSwitcher />
-    </nav>
+        <template #end>
+            <div class="flex align-items-center gap-2">
+                <sign-in @onShowToast="showSuccess" />
+                <Toast />
+                <Register />
+                <ThemeSwitcher />
+            </div>
+        </template>
+    </Toolbar>
 </template>
 
 <style scoped>

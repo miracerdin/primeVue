@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@primevue/common": "*",
+    "pinia": "^2.1.7",
     "primeicons": "^6.0.1",
     "primevue": "^3.44.0",
     "vue-router": "^4.2.5"
