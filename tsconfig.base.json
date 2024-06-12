@@ -16,6 +16,5 @@
     "baseUrl": "./integrated",
     "paths": {}
   },
-  "exclude": [
-    "integrated/node_modules", "tmp"]
+  "exclude": ["integrated/node_modules", "tmp"]
 }
