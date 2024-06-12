@@ -141,7 +141,7 @@
     color: var(--primary, #000);
 
     /* H3 Med CAPS */
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 25px;
     font-style: normal;
     font-weight: 500;
@@ -152,7 +152,7 @@
     color: var(--primary, #000);
 
     /* H3 Bold */
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 25px;
     font-style: normal;
     font-weight: 700;
@@ -162,7 +162,7 @@
     color: var(--primary, #000);
 
     /* H1 Reg */
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;

@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-    font-family: 'Inter var', sans-serif;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-family: "Inter var", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     font-variation-settings: normal;
-    --font-family: 'Inter var', sans-serif;
-    --font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    --font-family: "Inter var", sans-serif;
+    --font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     --primary-50: 236 253 245;
     --primary-100: 209 250 229;
     --primary-200: 167 243 208;
@@ -39,7 +39,7 @@
     --border-color: rgb(var(--surface-200));
 }
 
-#app[class='dark'] {
+#app[class="dark"] {
     --body-bg: rgb(var(--surface-900));
     --body-text-color: rgb(var(--surface-50));
     --card-border: 1px solid transparent;
@@ -51,7 +51,6 @@
 
 html {
     font-size: 14px;
-
 }
 
 body {
@@ -72,7 +71,7 @@ body {
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 1rem;
-  height: 100%;
+    height: 100%;
 }
 
 @keyframes fadein {
@@ -98,7 +97,7 @@ body {
         opacity: 0;
         transform: scaleY(0.8);
         transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1),
-        opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
+            opacity 0.12s cubic-bezier(0, 0, 0.2, 1);
     }
     100% {
         opacity: 1;
@@ -144,6 +143,6 @@ body {
     animation: slideup 0.45s cubic-bezier(0, 1, 0, 1);
 }
 
-.layout-ripple-disabled [data-pc-name='ripple'] {
+.layout-ripple-disabled [data-pc-name="ripple"] {
     display: none !important;
 }
