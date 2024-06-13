@@ -1,25 +1,18 @@
 {
-  "$schema": "integrated/node_modules/nx/schemas/nx-schema.json",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/vite/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "previewTargetName": "preview",
-        "testTargetName": "test",
-        "serveTargetName": "serve",
-        "serveStaticTargetName": "serve-static"
-      }
-    }
-  ],
-  "nxCloudAccessToken": "OWU2OWE0NTYtNTRjYS00MTFiLWFmZDQtMzM5MjVhYWMzZTBjfHJlYWQtd3JpdGU="
+    "$schema": "integrated/node_modules/nx/schemas/nx-schema.json",
+    "affected": { "defaultBase": "master" },
+    "plugins": [
+        { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+        {
+            "plugin": "@nx/vite/plugin",
+            "options": {
+                "buildTargetName": "build",
+                "previewTargetName": "preview",
+                "testTargetName": "test",
+                "serveTargetName": "serve",
+                "serveStaticTargetName": "serve-static"
+            }
+        }
+    ],
+    "nxCloudAccessToken": "NmZkODFkOTItODZkMS00YTJlLWJjYjktYmNlMDFhMGFlOTQ1fHJlYWQtd3JpdGU="
 }
