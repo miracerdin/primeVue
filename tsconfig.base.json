@@ -14,9 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "automation": ["packages/automation/src/index.ts"]
-    }
   },
   "exclude": ["node_modules", "tmp"]
 }
