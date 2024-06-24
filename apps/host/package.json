@@ -21,6 +21,7 @@
         "preview": "vite preview"
     },
     "devDependencies": {
+      "@primevue/common": "2.0.0",
         "@types/node": "^20.10.4",
         "@types/uuid": "^9.0.7",
         "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -37,16 +38,25 @@
         "vue": "^3.4.5"
     },
     "dependencies": {
-        "@primevue/common": "2.0.0",
+
         "pinia": "^2.1.7",
         "primeicons": "^6.0.1",
         "primevue": "^3.44.0",
-        "vue-router": "^4.2.5"
+        "vue-router": "^4.2.5",
+      "nx-cloud": "16.0.4",
+      "firebase": "^10.6.0",
+      "uuid": "^9.0.1"
     },
     "postcss": {
         "plugins": {
             "tailwindcss": {},
             "autoprefixer": {}
         }
-    }
+    },
+  "nx": {
+    "tags": [
+      "scope:@e-com/host"
+    ],
+    "includedScripts": []
+  }
 }
