@@ -16,5 +16,10 @@ export const userModule = defineStore("userModule", () => {
         currentUser.value = user;
     };
 
-    return { currentUser, initializeCurrentUser, setCurrentUser };
+    const deleteCurrentUser = () => {
+        sessionStorage.removeItem("user");
+        currentUser.value = null;
+    };
+
+    return { currentUser, initializeCurrentUser, setCurrentUser, deleteCurrentUser };
 });

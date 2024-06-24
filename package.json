@@ -23,7 +23,7 @@
     "test:packages": "nx run-many --target=test --exclude @primevue/host --parallel=5",
     "lint": "nx run-many --target=lint --parallel=5",
     "lint:fix": "nx run-many --target=lint:fix",
-    "dev": "nx run @primevue/host:dev",
+    "dev": "nx run @primevue/host:serve --host --port=5173",
     "preview": "nx run-many --target=preview",
     "codegen": "nx run-many --target=codegen",
     "graph": "nx graph",
