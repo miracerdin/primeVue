@@ -1,12 +1,23 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { sayHello } from "@primevue/common";
 import ThemeSwitcher from "../components/ThemeSwitcher.vue";
 import SignIn from "../components/SignIn.vue";
 import Register from "../components/Register.vue";
 import { useToast } from "primevue/usetoast";
+import { userModule } from "../store";
 
 const toast = useToast();
+
+const currentUser = ref(userModule().currentUser);
+
+watch(
+    () => userModule().currentUser,
+    (newVal) => {
+        currentUser.value = newVal;
+    },
+    { immediate: true },
+);
 
 const showSuccess = () => {
     console.log("success");
@@ -46,7 +57,7 @@ sayHello();
             <div class="flex align-items-center gap-2">
                 <sign-in @onShowToast="showSuccess" />
                 <Toast />
-                <Register />
+                <Register v-if="!currentUser" />
                 <ThemeSwitcher />
             </div>
         </template>
