@@ -45,6 +45,9 @@ import { authService, EnumToastSeverity, UserModel } from "@primevue/common";
 import { User } from "firebase/auth";
 import { userModule } from "../store/index";
 import { ToastMessageOptions } from "primevue/toast";
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
 
 const emit = defineEmits<{
     (event: "input", value: boolean): void;
@@ -70,8 +73,15 @@ const signInWithGoogle = async () => {
 
 const getUser = async () => {
     const res = await authService.signIn(userModel.value);
-    if (!res) return;
-    console.log("user", res);
+
+    if (!res?.user?.refreshToken)
+        return toast.add({
+            severity: EnumToastSeverity.Error,
+            summary: "Giriş Başarısız",
+            detail: res,
+            life: 3000,
+        });
+
     setCurrentUser(res.user);
     onShowToast({
         severity: EnumToastSeverity.Success,
