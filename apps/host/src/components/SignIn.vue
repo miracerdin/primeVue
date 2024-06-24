@@ -90,8 +90,15 @@ const signInWithGoogle = async () => {
 
 const getUser = async () => {
     const res = await authService.signIn(userModel.value);
-    if (!res) return;
-    console.log("user", res);
+
+    if (!res?.user?.refreshToken)
+        return toast.add({
+            severity: EnumToastSeverity.Error,
+            summary: "Giriş Başarısız",
+            detail: res,
+            life: 3000,
+        });
+
     setCurrentUser(res.user);
 
     toast.add({
