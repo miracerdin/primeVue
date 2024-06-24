@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 
 import DataView from "primevue/dataview";
 import Tag from "primevue/tag";
@@ -11,10 +11,12 @@ import { CategoryModel } from "../interfaces/category";
 import { productService } from "../api/product";
 import { categoryService } from "../api/category";
 import { SelectModel } from "@primevue/common";
+import { userModule } from "../store";
 
 const products = ref<ProductModel[]>([]);
 const categories = ref<CategoryModel[]>([]);
 const layout = ref<"grid" | "list">("grid");
+const currentUser = ref(userModule().currentUser);
 
 const getProducts = async () => {
     try {
@@ -63,6 +65,17 @@ onMounted(async () => {
     await getCategories();
     await getProducts();
 });
+
+watch(
+    () => userModule().currentUser,
+    (newVal) => {
+        currentUser.value = newVal;
+        if (currentUser.value) {
+            getProducts();
+        }
+    },
+    { immediate: true },
+);
 
 const categoryName = computed(() => (categoryId?: number) => {
     if (!categoryId) return "";
