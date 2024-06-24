@@ -10,6 +10,7 @@ import {
 import { firebaseApp } from "./firebaseConfig";
 import { UserModel } from "../../types";
 import { FirebaseStorageError } from "./firebase-storage-error";
+import { signOut } from "@firebase/auth";
 
 class AuthService {
     currentAuth = () => getAuth(firebaseApp);
@@ -20,7 +21,7 @@ class AuthService {
             const userCredential = await createUserWithEmailAndPassword(
                 this.currentAuth(),
                 model.email,
-                model.password
+                model.password,
             );
             const user = userCredential.user;
 
@@ -48,7 +49,7 @@ class AuthService {
             return await signInWithEmailAndPassword(
                 this.currentAuth(),
                 model.email,
-                model.password
+                model.password,
             );
         } catch (e) {
             const error = e as FirebaseStorageError;
@@ -89,6 +90,20 @@ class AuthService {
 
     async onAuthStateChanged(callback: (user: User | null) => void) {
         return this.currentAuth().onAuthStateChanged(callback);
+    }
+
+    async logout() {
+        try {
+            await signOut(this.currentAuth());
+        } catch (e) {
+            const error = e as FirebaseStorageError;
+            switch (error.code) {
+                case "auth/requires-recent-login":
+                    return "You must sign in again to use this service";
+                default:
+                    return "An error occurred while signing out";
+            }
+        }
     }
 }
 
