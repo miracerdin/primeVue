@@ -32,7 +32,7 @@ sayHello();
 </script>
 
 <template>
-    <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem" class="h-20">
+    <Toolbar class="h-20 rounded-md p-4">
         <template #start>
             <div class="flex align-items-center gap-2">
                 <svg

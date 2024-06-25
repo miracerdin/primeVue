@@ -184,7 +184,7 @@ const getSeverity = computed(() => (product: ProductModel): SelectModel<string> 
                             <img
                                 :alt="item.name"
                                 :src="item.picture"
-                                class="w-9/12 shadow-md rounded"
+                                class="w-9/12 h-72 shadow-md rounded"
                             />
                             <div class="text-2xl font-bold">{{ item.name }}</div>
                             <Rating :cancel="false" :modelValue="item.rating" readonly />
