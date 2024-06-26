@@ -1,53 +1,35 @@
 <template>
-    <Button label="Sign Up" @click="visible = true" class="h-9" />
 
-    <Dialog v-model:visible="visible" modal header="Create Account" :style="{ width: '25rem' }">
-        <template #header>
-            <div class="inline-flex align-items-center justify-content-center gap-2">
-                <Avatar
-                    image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
-                    shape="circle"
-                />
-                <span class="font-bold white-space-nowrap">Amy Elsner</span>
-            </div>
-        </template>
-        <span class="p-text-secondary block mb-5">Update your information.</span>
-        <div class="flex align-items-center gap-3 mb-3">
-            <label for="username" class="font-semibold w-6rem">Username</label>
-            <InputText
-                id="username"
-                class="flex-auto"
-                autocomplete="off"
-                v-model="userModel.userName"
-            />
-        </div>
-        <div class="flex align-items-center gap-3 mb-2">
-            <label for="email" class="font-semibold w-6rem">Email</label>
-            <InputText id="email" class="flex-auto" autocomplete="off" v-model="userModel.email" />
-        </div>
-        <div class="flex align-items-center gap-3 mb-2">
-            <label for="password" class="font-semibold w-6rem">Password</label>
-            <InputText
-                id="password"
-                class="flex-auto"
-                autocomplete="off"
-                v-model="userModel.password"
-            />
-        </div>
-        <div>
-            <Button
-                label="Sign In With Google"
-                text
-                severity="secondary"
-                @click="signUpWithGoogle"
-                autofocus
-            />
-        </div>
-        <template #footer>
-            <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
-            <Button label="Save" outlined severity="secondary" @click="createUser" autofocus />
-        </template>
-    </Dialog>
+  <Button label="Sign Up" @click="visible = true" class="h-9" />
+
+  <Dialog v-model:visible="visible" modal header="Sign Up">
+    <div class="surface-card p-4 shadow-2 border-round w-full ">
+      <div class="text-center mb-5">
+        <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+        <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+      </div>
+      <div>
+        <label for="username" class="block text-900 font-medium mb-2">Username</label>
+        <InputText
+          id="username"
+          class="w-full mb-3"
+          autocomplete="off"
+          v-model="userModel.userName"
+        />
+      </div>
+      <div>
+        <label for="email1" class="block text-900 font-medium mb-2">Email</label>
+        <InputText id="email1" type="text" placeholder="Email address" class="w-full mb-3"  v-model="userModel.email" />
+
+        <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+        <InputText id="password1" type="password" placeholder="Password" class="w-full mb-3" v-model="userModel.password"/>
+
+        <Button label="Sign In" icon="pi pi-user" class="w-full" @click="createUser"></Button>
+      </div>
+    </div>
+  </Dialog>
+
 </template>
 
 <script setup lang="ts">

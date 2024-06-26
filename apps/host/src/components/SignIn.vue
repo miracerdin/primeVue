@@ -5,46 +5,35 @@
     </div>
     <div v-else>
         <Button label="Sign In" @click="visible = true" class="h-9" />
-        <Dialog v-model:visible="visible" modal header="Sign In" :style="{ width: '25rem' }">
-            <span class="p-text-secondary block mb-5">Enter your information.</span>
 
-            <div class="flex align-items-center gap-3 mb-5">
-                <label for="email" class="font-semibold w-6rem">Email</label>
-                <InputText
-                    id="email"
-                    class="flex-auto"
-                    autocomplete="off"
-                    v-model="userModel.email"
-                />
+      <Dialog v-model:visible="visible" modal header="Sign In">
+      <div class="surface-card p-4 shadow-2 border-round w-full ">
+        <div class="text-center mb-5">
+          <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+          <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+          <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+        </div>
+
+        <div>
+          <label for="email1" class="block text-900 font-medium mb-2">Email</label>
+          <InputText id="email1" type="text" placeholder="Email address" class="w-full mb-3"  v-model="userModel.email" />
+
+          <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+          <InputText id="password1" type="password" placeholder="Password" class="w-full mb-3" v-model="userModel.password"/>
+
+          <div class="flex align-items-center justify-content-between mb-6">
+            <div class="flex align-items-center">
+              <Checkbox id="rememberme1" :binary="true" v-model="checked1" class="mr-2"></Checkbox>
+              <label for="rememberme1">Remember me</label>
             </div>
-            <div class="flex align-items-center gap-3 mb-3">
-                <label for="password" class="font-semibold w-6rem">Password</label>
-                <InputText
-                    id="password"
-                    class="flex-auto"
-                    autocomplete="off"
-                    v-model="userModel.password"
-                />
-            </div>
-            <div>
-                <Button
-                    label="Sign In With Google"
-                    text
-                    severity="secondary"
-                    @click="signInWithGoogle"
-                    autofocus
-                />
-            </div>
-            <div class="flex justify-content-end gap-2">
-                <Button
-                    type="button"
-                    label="Cancel"
-                    severity="secondary"
-                    @click="visible = false"
-                ></Button>
-                <Button type="button" label="Save" @click="getUser"></Button>
-            </div>
-        </Dialog>
+            <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
+          </div>
+
+          <Button label="Sign In" icon="pi pi-user" class="w-full" @click="getUser"></Button>
+        </div>
+      </div>
+       </Dialog>
+
     </div>
 </template>
 
@@ -71,6 +60,7 @@ const userModel = ref<UserModel>({
     password: "",
 });
 
+const checked1 = shallowRef(false);
 const currentUser = ref(userModule().currentUser);
 const setCurrentUser = (user: User) => userModule().setCurrentUser(user);
 const onShowToast = (value: ToastMessageOptions) => emit("onShowToast", value);
